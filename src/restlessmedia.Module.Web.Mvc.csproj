@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A57CFE9B-E59E-451F-AA11-DFAA920867CC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>restlessmedia.Module.Web.Mvc</RootNamespace>
+    <AssemblyName>restlessmedia.Module.Web.Mvc</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AjaxAwareRedirectResult.cs" />
+    <Compile Include="Asset\AssetBase.cs" />
+    <Compile Include="Asset\AssetCollection.cs" />
+    <Compile Include="Asset\Cache.cs" />
+    <Compile Include="Asset\CssAsset.cs" />
+    <Compile Include="Asset\JsAsset.cs" />
+    <Compile Include="Attributes\ActivityAttribute.cs" />
+    <Compile Include="Attributes\ActivityFilterAttribute.cs" />
+    <Compile Include="Attributes\AdminAttribute.cs" />
+    <Compile Include="Attributes\AiHandleErrorAttribute.cs" />
+    <Compile Include="Attributes\BasicAuthenticationAttribute.cs" />
+    <Compile Include="Attributes\ClientAttribute.cs" />
+    <Compile Include="Attributes\EntityCacheAttribute.cs" />
+    <Compile Include="Attributes\ETagCacheAttribute.cs" />
+    <Compile Include="Attributes\HttpCacheAttribute.cs" />
+    <Compile Include="Attributes\LifeCacheAttribute.cs" />
+    <Compile Include="Attributes\SecurityAccessAttribute.cs" />
+    <Compile Include="Binders\FileModelBinder.cs" />
+    <Compile Include="Binders\FlagEnumerationModelBinder.cs" />
+    <Compile Include="Binders\IFilteredModelBinder.cs" />
+    <Compile Include="Binders\PropertyDescriptorWrapper.cs" />
+    <Compile Include="Binders\SmartModelBinder.cs" />
+    <Compile Include="Configuration\AssetSettings.cs" />
+    <Compile Include="Configuration\IAssetSettings.cs" />
+    <Compile Include="Configuration\IInclude.cs" />
+    <Compile Include="Configuration\Include.cs" />
+    <Compile Include="Configuration\IncludeCollection.cs" />
+    <Compile Include="Controllers\ControllerBase.cs" />
+    <Compile Include="Controllers\IController.cs" />
+    <Compile Include="CustomViewEngine.cs" />
+    <Compile Include="DefaultModelBinder.cs" />
+    <Compile Include="DisplayModes\MobileDisplay.cs" />
+    <Compile Include="DisplayModes\MobileWebDisplay.cs" />
+    <Compile Include="DisplayModes\TabletDisplay.cs" />
+    <Compile Include="Extensions\InputExtensions.cs" />
+    <Compile Include="Extensions\RequestExtensions.cs" />
+    <Compile Include="Extensions\SelectExtensions.cs" />
+    <Compile Include="Extensions\UrlHelperExtensions.cs" />
+    <Compile Include="Extensions\ViewContextExtensions.cs" />
+    <Compile Include="Extensions\WebViewPageExtensions.cs" />
+    <Compile Include="Filters\AccessAttribute.cs" />
+    <Compile Include="Filters\CacheFilterAttribute.cs" />
+    <Compile Include="Filters\CompressFilter.cs" />
+    <Compile Include="GenericModelMetadataProvider.cs" />
+    <Compile Include="Growl.cs" />
+    <Compile Include="GrowlCollection.cs" />
+    <Compile Include="Helper\HtmlHelper.cs" />
+    <Compile Include="IMvcApplication.cs" />
+    <Compile Include="MobileCookie.cs" />
+    <Compile Include="Model\ActivityModel.cs" />
+    <Compile Include="Model\AddAlertModel.cs" />
+    <Compile Include="Model\AddressModel.cs" />
+    <Compile Include="Model\APIUploadModel.cs" />
+    <Compile Include="Model\AttributeModel.cs" />
+    <Compile Include="Model\CategoryModel.cs" />
+    <Compile Include="Model\ChangePasswordModel.cs" />
+    <Compile Include="Model\ContactModel.cs" />
+    <Compile Include="Model\EnquiryModel.cs" />
+    <Compile Include="Model\ErrorModel.cs" />
+    <Compile Include="Model\FileModel.cs" />
+    <Compile Include="Model\ForgotPasswordModel.cs" />
+    <Compile Include="Model\GalleryModel.cs" />
+    <Compile Include="Model\GoogleMapModel.cs" />
+    <Compile Include="Model\LogOnModel.cs" />
+    <Compile Include="Model\MetaModel.cs" />
+    <Compile Include="Model\NearestModel.cs" />
+    <Compile Include="Model\NewCustomerModel.cs" />
+    <Compile Include="Model\RegisterModel.cs" />
+    <Compile Include="Model\RequestViewingModel.cs" />
+    <Compile Include="Model\ResetPasswordModel.cs" />
+    <Compile Include="Model\Result\LoginJsonResultModel.cs" />
+    <Compile Include="Model\Result\LoginResultState.cs" />
+    <Compile Include="Model\TwitterModel.cs" />
+    <Compile Include="Model\UserModel.cs" />
+    <Compile Include="Model\ValidateModel.cs" />
+    <Compile Include="MvcTag.cs" />
+    <Compile Include="Navigation\Homepage.cs" />
+    <Compile Include="Navigation\Menu.cs" />
+    <Compile Include="Navigation\Nav.cs" />
+    <Compile Include="Navigation\NavItem.cs" />
+    <Compile Include="Navigation\RouteContext.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyDescriptorWrapper.cs" />
+    <Compile Include="SpreadsheetResult.cs" />
+    <Compile Include="ValidationResult.cs" />
+    <Compile Include="ViewDataContainer.cs" />
+    <Compile Include="ViewEngine.cs" />
+    <Compile Include="WebViewPage.cs" />
+    <Compile Include="XmlResult.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="restlessmedia.Module.Web.Mvc.nuspec" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
