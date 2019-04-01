@@ -3,7 +3,6 @@ using Autofac.Integration.Mvc;
 using restlessmedia.Module.Web.Mvc.Binders;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
