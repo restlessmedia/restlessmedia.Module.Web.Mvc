@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		appveyor.yml = appveyor.yml
 		nuget.config = nuget.config
 		README.md = README.md
+		packages-local\restlessmedia.Module.Security.1.0.0.nupkg = packages-local\restlessmedia.Module.Security.1.0.0.nupkg
+		packages-local\restlessmedia.Module.Security.1.1.0.nupkg = packages-local\restlessmedia.Module.Security.1.1.0.nupkg
 	EndProjectSection
 EndProject
 Global
@@ -28,6 +30,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8
 		SolutionGuid = {212E0225-7E10-4E21-9D3B-E4297DBF58D8}
 	EndGlobalSection
 EndGlobal

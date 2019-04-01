@@ -1,7 +1,7 @@
 ﻿using restlessmedia.Module.Web.Configuration;
 using System.Collections.Generic;
 
-namespace restlessmedia.Module.Web.Asset
+namespace restlessmedia.Module.Web.Mvc.Asset
 {
   public class JsAsset : AssetBase
   {

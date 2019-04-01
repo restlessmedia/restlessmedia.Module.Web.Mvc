@@ -1,4 +1,5 @@
-﻿using System;
+﻿using restlessmedia.Module.Web.Mvc.Model;
+using System;
 using System.Web.Mvc;
 
 namespace restlessmedia.Module.Web.Mvc.Binders

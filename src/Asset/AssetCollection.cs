@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace restlessmedia.Module.Web.Asset
+namespace restlessmedia.Module.Web.Mvc.Asset
 {
   public class AssetCollection
   {

@@ -1,4 +1,6 @@
-﻿namespace restlessmedia.Module.Web.Mvc.Attributes
+﻿using restlessmedia.Module.Security;
+
+namespace restlessmedia.Module.Web.Mvc.Attributes
 {
   /// <summary>
   /// There is always a system admin role with admin actitivity and basic access.  This is the wrapper check for it.

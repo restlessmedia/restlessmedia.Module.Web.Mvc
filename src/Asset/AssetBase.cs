@@ -1,4 +1,4 @@
-﻿using restlessmedia.Module.Web.Mvc.Configuration;
+﻿using restlessmedia.Module.Web.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;

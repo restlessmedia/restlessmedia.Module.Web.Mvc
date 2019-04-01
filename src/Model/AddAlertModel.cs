@@ -1,4 +1,4 @@
-﻿using restlessmedia.Module.DataAnnotations;
+using restlessmedia.Module.DataAnnotations;
 using System.ComponentModel.DataAnnotations;
 
 namespace restlessmedia.Module.Web.Mvc.Model

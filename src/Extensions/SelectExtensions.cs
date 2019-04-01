@@ -1,4 +1,6 @@
-﻿using System;
+﻿using restlessmedia.Module.Category;
+using restlessmedia.Module.Security;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
@@ -67,7 +69,7 @@ namespace restlessmedia.Module.Web.Mvc.Extensions
 
     public static MvcHtmlString RangeListFor<TModel, TProperty>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TProperty>> expression, int from, int to, string format = "0", int step = 1, object htmlAttributes = null, string emptyOption = null)
     {
-      return FormattedListFor(htmlHelper, expression, EnumerableExtensions.Range(from, to, step), htmlAttributes: htmlAttributes, emptyOption: emptyOption);
+      return FormattedListFor(htmlHelper, expression, EnumerableHelper.Range(from, to, step), htmlAttributes: htmlAttributes, emptyOption: emptyOption);
     }
 
     public static MvcHtmlString ValueListFor<TModel, TProperty>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TProperty>> expression, IEnumerable values, object htmlAttributes = null, string emptyOption = null)
@@ -113,29 +115,6 @@ namespace restlessmedia.Module.Web.Mvc.Extensions
       {
         items.Insert(0, new SelectListItem { Text = emptyOption, Value = string.Empty });
       }
-
-      return htmlHelper.DropDownListFor(expression, items, htmlAttributes);
-    }
-
-    public static MvcHtmlString BranchListFor<TModel, TProperty>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TProperty>> expression, object htmlAttributes = null, string emptyOption = null)
-    {
-      List<SelectListItem> items = new List<SelectListItem>();
-
-      items.AddRange(Resolve<IPropertyService>().ListBranches().Select(x => new SelectListItem { Text = $"{x.Name} - {x.ListingType}", Value = x.BranchGuid.ToString() }));
-
-      if (!string.IsNullOrEmpty(emptyOption))
-      {
-        items.Insert(0, new SelectListItem { Text = emptyOption, Value = string.Empty });
-      }
-
-      return htmlHelper.DropDownListFor(expression, items, htmlAttributes);
-    }
-
-    public static MvcHtmlString DevelopmentListFor<TModel, TProperty>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TProperty>> expression, object htmlAttributes = null)
-    {
-      List<SelectListItem> items = new List<SelectListItem> { EmptyOption };
-
-      items.AddRange(Resolve<IPropertyService>().ListDevelopments().Select(x => new SelectListItem { Text = x.Name, Value = x.DevelopmentId.ToString() }));
 
       return htmlHelper.DropDownListFor(expression, items, htmlAttributes);
     }

@@ -11,9 +11,9 @@ namespace restlessmedia.Module.Web.Mvc
     {
       if (context.RequestContext.HttpContext.Request.IsAjaxRequest())
       {
-        string destinationUrl = UrlHelper.GenerateContentUrl(Url, context.HttpContext);
+        string destinationUrl = System.Web.Mvc.UrlHelper.GenerateContentUrl(Url, context.HttpContext);
 
-        JavaScriptResult result = new JavaScriptResult()
+        JavaScriptResult result = new JavaScriptResult
         {
           Script = "window.location='" + destinationUrl + "';"
         };

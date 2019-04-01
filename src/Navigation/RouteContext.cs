@@ -1,4 +1,5 @@
-﻿using System;
+﻿using restlessmedia.Module.Web.Mvc.Extensions;
+using System;
 using System.Web.Mvc;
 
 namespace restlessmedia.Module.Web.Navigation

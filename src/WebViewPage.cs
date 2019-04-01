@@ -3,10 +3,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Text.RegularExpressions;
-using restlessmedia.Module.Web.Helper;
-using restlessmedia.Module.Category;
-using restlessmedia.Module.Web.Asset;
 using restlessmedia.Module.Security;
+using restlessmedia.Module.Category;
+using restlessmedia.Module.Web.Helper;
+using restlessmedia.Module.Web.Mvc.Asset;
 
 namespace restlessmedia.Module.Web.Mvc
 {

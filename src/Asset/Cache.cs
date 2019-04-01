@@ -2,7 +2,7 @@
 using System.Web;
 using System.Web.Mvc;
 
-namespace restlessmedia.Module.Web.Asset
+namespace restlessmedia.Module.Web.Mvc.Asset
 {
   public static class Cache
   {

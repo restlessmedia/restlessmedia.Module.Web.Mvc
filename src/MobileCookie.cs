@@ -1,4 +1,4 @@
-﻿using restlessmedia.Module.Security;
+using restlessmedia.Module.Security;
 using System;
 using System.Web;
 
