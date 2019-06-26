@@ -115,8 +115,8 @@
     <Reference Include="restlessmedia.Module.Security, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\restlessmedia.Module.Security.1.1.0\lib\net452\restlessmedia.Module.Security.dll</HintPath>
     </Reference>
-    <Reference Include="restlessmedia.Module.Web, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\restlessmedia.Module.Web.2.0.0\lib\net452\restlessmedia.Module.Web.dll</HintPath>
+    <Reference Include="restlessmedia.Module.Web, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\restlessmedia.Module.Web.2.3.0\lib\net452\restlessmedia.Module.Web.dll</HintPath>
     </Reference>
     <Reference Include="SqlBuilder, Version=1.10.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SqlBuilder.1.10.0\lib\net452\SqlBuilder.dll</HintPath>

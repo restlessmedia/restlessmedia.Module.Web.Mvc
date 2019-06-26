@@ -1,4 +1,4 @@
-﻿using Autofac;
+using Autofac;
 using Autofac.Integration.Mvc;
 using restlessmedia.Module.Web.Mvc.Binders;
 using System.Collections.Generic;
@@ -10,9 +10,9 @@ using System.Web.WebPages;
 
 namespace restlessmedia.Module.Web.Mvc
 {
-  public class WebModule : IWebModule
+  public class WebModule : WebModuleBase
   {
-    public void OnStart(HttpConfiguration httpConfiguration, ContainerBuilder builder, IEnumerable<IWebModule> webModules)
+    public override void OnStart(HttpConfiguration httpConfiguration, ContainerBuilder builder, IEnumerable<IWebModule> webModules)
     {
       builder.RegisterFilterProvider();
 
@@ -28,13 +28,17 @@ namespace restlessmedia.Module.Web.Mvc
       
       // register controllers from all loaded wed modules
       builder.RegisterControllers(webModules.Select(x => x.GetType().Assembly).ToArray());
-
-      Routes();
     }
 
-    public void OnStart(HttpConfiguration httpConfiguration, IContainer container, IEnumerable<IWebModule> webModules)
+    public override void OnStart(HttpConfiguration httpConfiguration, IContainer container, IEnumerable<IWebModule> webModules)
     {
       DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+    }
+
+    public override void OnStarted(HttpConfiguration httpConfiguration, IContainer container, IEnumerable<IWebModule> webModules)
+    {
+      // this ensures the less specific routes get registered last
+      Routes();
     }
 
     private void Routes()

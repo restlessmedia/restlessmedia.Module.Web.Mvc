@@ -10,5 +10,8 @@
     <description>Web Mvc module</description>
     <copyright>Copyright restlessmedia 2019</copyright>
     <tags></tags>
+	<frameworkAssemblies>
+	  <frameworkAssembly assemblyName="System.Web.Mvc"  />
+    </frameworkAssemblies>
   </metadata>
 </package>
