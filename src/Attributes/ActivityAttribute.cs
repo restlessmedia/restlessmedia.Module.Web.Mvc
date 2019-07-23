@@ -38,7 +38,7 @@ namespace restlessmedia.Module.Web.Mvc.Attributes
 
     protected T Resolve<T>()
     {
-      return System.Web.Mvc.DependencyResolverExtensions.GetService<T>(System.Web.Mvc.DependencyResolver.Current);
+      return DependencyResolverExtensions.GetService<T>(DependencyResolver.Current);
     }
 
     private ISecurityService _securityService;
