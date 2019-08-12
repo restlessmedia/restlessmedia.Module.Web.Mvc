@@ -41,6 +41,9 @@
     <Reference Include="Autofac.Integration.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.Mvc5.4.0.2\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="CsvWriter, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CsvWriter.1.0.0\lib\net472\CsvWriter.dll</HintPath>
+    </Reference>
     <Reference Include="Dapper, Version=1.60.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.1.60.1\lib\net451\Dapper.dll</HintPath>
     </Reference>
@@ -269,6 +272,7 @@
     <Compile Include="Binders\SmartModelBinder.cs" />
     <Compile Include="Controllers\ControllerBase.cs" />
     <Compile Include="Controllers\IController.cs" />
+    <Compile Include="CsvResult.cs" />
     <Compile Include="CustomViewEngine.cs" />
     <Compile Include="DefaultModelBinder.cs" />
     <Compile Include="DisplayModes\MobileDisplay.cs" />
@@ -311,7 +315,6 @@
     <Compile Include="Navigation\RouteContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PropertyDescriptorWrapper.cs" />
-    <Compile Include="SpreadsheetResult.cs" />
     <Compile Include="ValidationResult.cs" />
     <Compile Include="ViewDataContainer.cs" />
     <Compile Include="ViewEngine.cs" />

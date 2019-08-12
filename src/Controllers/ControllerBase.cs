@@ -131,18 +131,19 @@ namespace restlessmedia.Module.Web.Mvc.Controllers
     }
 
     [NonAction]
-    protected ActionResult Spreadsheet<T>(IEnumerable<T> data, string name)
+    protected ActionResult Csv<T>(IEnumerable<T> data, string name)
     {
-      return new SpreadsheetResult<T>(data, name);
+      return new CsvResult<T>(data, name);
     }
 
-    protected Uri PreviousPage
+    [NonAction]
+    [Obsolete("Use Csv instead")]
+    protected ActionResult Spreadsheet<T>(IEnumerable<T> data, string name)
     {
-      get
-      {
-        return _previousPage;
-      }
+      return Csv(data, name);
     }
+
+    protected Uri PreviousPage { get; private set; }
 
     protected override RedirectResult Redirect(string url)
     {
@@ -151,7 +152,7 @@ namespace restlessmedia.Module.Web.Mvc.Controllers
 
     protected override void OnActionExecuting(ActionExecutingContext filterContext)
     {
-      _previousPage = TempData[_previousPageKey] as Uri;
+      PreviousPage = TempData[_previousPageKey] as Uri;
       TempData[_previousPageKey] = filterContext.RequestContext.HttpContext.Request.Url;
 
       base.OnActionExecuting(filterContext);
@@ -170,8 +171,6 @@ namespace restlessmedia.Module.Web.Mvc.Controllers
     }
 
     protected readonly WebSecurity Authentication;
-
-    private Uri _previousPage = null;
 
     private const string _previousPageKey = "previousPage";
   }

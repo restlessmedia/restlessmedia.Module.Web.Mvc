@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.489
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "restlessmedia.Module.Web.Mvc", "src\restlessmedia.Module.Web.Mvc.csproj", "{A57CFE9B-E59E-451F-AA11-DFAA920867CC}"
 EndProject
@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		packages-local\restlessmedia.Module.Security.1.1.0.nupkg = packages-local\restlessmedia.Module.Security.1.1.0.nupkg
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "restlessmedia.Module.Web.Mvc.UnitTest", "restlessmedia.Module.Web.Mvc.UnitTest\restlessmedia.Module.Web.Mvc.UnitTest.csproj", "{FDBEF5F6-36EC-49C6-9AC6-287F7ADFEC08}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,12 +27,16 @@ Global
 		{A57CFE9B-E59E-451F-AA11-DFAA920867CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A57CFE9B-E59E-451F-AA11-DFAA920867CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A57CFE9B-E59E-451F-AA11-DFAA920867CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDBEF5F6-36EC-49C6-9AC6-287F7ADFEC08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDBEF5F6-36EC-49C6-9AC6-287F7ADFEC08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDBEF5F6-36EC-49C6-9AC6-287F7ADFEC08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDBEF5F6-36EC-49C6-9AC6-287F7ADFEC08}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8
 		SolutionGuid = {212E0225-7E10-4E21-9D3B-E4297DBF58D8}
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8
 	EndGlobalSection
 EndGlobal
