@@ -42,7 +42,7 @@
     <PackageReference Include="Microsoft.NETCore.Platforms" Version="2.2.0" />
     <PackageReference Include="Microsoft.Web.Infrastructure" Version="1.0.0.0" />
     <PackageReference Include="Microsoft.Win32.Primitives" Version="4.3.0" />
-    <PackageReference Include="Microsoft.WindowsAzure.ConfigurationManager" Version="2.0.3.0" />
+    <PackageReference Include="Microsoft.WindowsAzure.ConfigurationManager" Version="2.0.3" />
     <PackageReference Include="NETStandard.Library" Version="2.0.3" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="RazorEngine" Version="3.10.0" />
@@ -123,3 +123,4 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
 </Project>
+
