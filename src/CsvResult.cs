@@ -1,4 +1,5 @@
 ﻿using CsvWriter;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -9,12 +10,12 @@ namespace restlessmedia.Module.Web.Mvc
 {
   public class CsvResult<T> : FileResult
   {
-    public CsvResult(IEnumerable<T> data, string contentType = "text/csv", string columnDelimiter = ",", string rowDelimiter = "\r\n")
+    public CsvResult(IEnumerable<T> data, string contentType = "text/csv", string columnDelimiter = ",", string rowDelimiter = null)
         : base(contentType)
     {
       _data = data;
       _columnDelimiter = columnDelimiter;
-      _rowDelimiter = rowDelimiter;
+      _rowDelimiter = rowDelimiter ?? Environment.NewLine;
     }
 
     protected override void WriteFile(HttpResponseBase response)
@@ -36,8 +37,8 @@ namespace restlessmedia.Module.Web.Mvc
 
     private readonly IEnumerable<T> _data;
 
-    private readonly string _columnDelimiter = ",";
+    private readonly string _columnDelimiter;
 
-    private readonly string _rowDelimiter = "\r\n";
+    private readonly string _rowDelimiter;
   }
 }

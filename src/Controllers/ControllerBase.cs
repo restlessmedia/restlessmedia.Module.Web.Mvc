@@ -11,11 +11,11 @@ namespace restlessmedia.Module.Web.Mvc.Controllers
 {
   public abstract class ControllerBase : Controller, IController, System.Web.Mvc.IController
   {
-    public ControllerBase(IUIContext context)
+    public ControllerBase(IUIContext context, IWebSecurityProvider authentication)
     {
       Context = context ?? throw new ArgumentNullException(nameof(context));
       LocationHelper = new LocationHelper(context.FileSettings, context.File);
-      Authentication = new WebSecurity(context.Security);
+      Authentication = authentication ?? throw new ArgumentNullException(nameof(authentication));
     }
 
     [HttpGet]
@@ -170,7 +170,7 @@ namespace restlessmedia.Module.Web.Mvc.Controllers
       return View(viewName, new TModel());
     }
 
-    protected readonly WebSecurity Authentication;
+    protected readonly IWebSecurityProvider Authentication;
 
     private const string _previousPageKey = "previousPage";
   }
