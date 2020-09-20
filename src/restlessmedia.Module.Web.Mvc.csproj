@@ -8,7 +8,7 @@
     <OutputPath>bin\$(Configuration)\</OutputPath>
     <Authors>Phil Cooper</Authors>
     <PackageId>restlessmedia.Module.Web.Mvc</PackageId>
-    <Version>1.0.6</Version>
+    <Version>1.0.7</Version>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -54,7 +54,7 @@
     <PackageReference Include="restlessmedia.Module.Email" Version="2.1.4" />
     <PackageReference Include="restlessmedia.Module.File" Version="2.4.5" />
     <PackageReference Include="restlessmedia.Module.Security" Version="3.1.2" />
-    <PackageReference Include="restlessmedia.Module.Web" Version="5.1.8" />
+    <PackageReference Include="restlessmedia.Module.Web" Version="5.1.9" />
     <PackageReference Include="SqlBuilder" Version="2.0.1" />
     <PackageReference Include="SqlBuilder.DataServices" Version="2.0.0" />
     <PackageReference Include="StackExchange.Redis.StrongName" Version="1.2.6" />
