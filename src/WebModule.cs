@@ -28,6 +28,8 @@ namespace restlessmedia.Module.Web.Mvc
       
       // register controllers from all loaded wed modules
       builder.RegisterControllers(webModules.Select(x => x.GetType().Assembly).ToArray());
+
+      RouteTable.Routes.MapMvcAttributeRoutes();
     }
 
     public override void OnStart(HttpConfiguration httpConfiguration, IContainer container, IEnumerable<IWebModule> webModules)
@@ -37,14 +39,14 @@ namespace restlessmedia.Module.Web.Mvc
 
     public override void OnStarted(HttpConfiguration httpConfiguration, IContainer container, IEnumerable<IWebModule> webModules)
     {
+      // default route
+      RouteTable.Routes.MapRoute(
+          "Default",
+          "{controller}/{action}/{id}",
+          new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+      );
+
       // this ensures the less specific routes get registered last
-      Routes();
-    }
-
-    private void Routes()
-    {
-      RouteTable.Routes.MapMvcAttributeRoutes();
-
       RouteTable.Routes.IgnoreRoute("robots.txt");
       RouteTable.Routes.IgnoreRoute("sitemap");
       RouteTable.Routes.IgnoreRoute("sitemap.gz");
@@ -54,13 +56,6 @@ namespace restlessmedia.Module.Web.Mvc
       RouteTable.Routes.IgnoreRoute("google_sitemap.xml.gz");
       RouteTable.Routes.IgnoreRoute("favicon.ico");
       RouteTable.Routes.IgnoreRoute("{*allfiles}", new { allfiles = @".*\.(css|js|php|aspx|axd|jpg)" });
-
-      // default route
-      RouteTable.Routes.MapRoute(
-            "Default",
-            "{controller}/{action}/{id}",
-            new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-        );
     }
   }
 }
