@@ -15,7 +15,7 @@ namespace restlessmedia.Module.Web.Mvc
 
         JavaScriptResult result = new JavaScriptResult
         {
-          Script = "window.location='" + destinationUrl + "';"
+          Script = $"window.location='{destinationUrl}';"
         };
         result.ExecuteResult(context);
       }
