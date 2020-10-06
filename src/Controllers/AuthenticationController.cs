@@ -6,9 +6,9 @@ using System.Web.Mvc;
 
 namespace restlessmedia.Module.Web.Mvc.Controllers
 {
-  public class SecurityController : Controller
+  public class AuthenticationController : Controller
   {
-    public SecurityController(IWebSecurityProvider authentication, ISecurityService securityService)
+    public AuthenticationController(IWebSecurityProvider authentication, ISecurityService securityService)
     {
       _authentication = authentication ?? throw new ArgumentNullException(nameof(authentication));
       _securityService = securityService ?? throw new ArgumentNullException(nameof(securityService));
