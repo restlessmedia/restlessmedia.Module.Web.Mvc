@@ -99,6 +99,18 @@ namespace restlessmedia.Module.Web.Mvc.Controllers
       return View(model);
     }
 
+    [HttpGet]
+    [Route("ResetPassword")]
+    public ActionResult ResetPassword(Guid? accessKey)
+    {
+      if (accessKey.HasValue)
+      {
+        return View(new ResetPasswordModel(accessKey.Value));
+      }
+
+      return View(new ResetPasswordModel());
+    }
+
     protected virtual string GetLoginRedirect(LogOnModel model)
     {
       // check against redirect hack prevention
