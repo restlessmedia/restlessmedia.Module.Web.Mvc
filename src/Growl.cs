@@ -11,10 +11,12 @@ namespace restlessmedia.Module.Web.Mvc
   {
     public Growl(ControllerBase controller, string message, string type)
     {
+      Message = message;
+      Type = type;
       _collection = new GrowlCollection(controller);
     }
 
-    public static void Add(ControllerBase controller, string message, string type   = "info")
+    public static void Add(ControllerBase controller, string message, string type = "info")
     {
       Growl growl = new Growl(controller, message, type);
       growl._collection.Add(growl);
