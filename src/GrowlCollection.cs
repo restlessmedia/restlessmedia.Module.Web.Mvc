@@ -91,10 +91,8 @@ namespace restlessmedia.Module.Web.Mvc
             builder.AppendLine("<script type=\"text/javascript\">");
           }
 
-          foreach (Growl growl in collection)
-          {
-            builder.AppendLine(scriptFactory(growl));
-          }
+          // render out the scripts
+          builder.Append(string.Join(Environment.NewLine, collection.Select(scriptFactory)));
 
           // reset
           collection.Clear();

@@ -25,13 +25,27 @@ namespace restlessmedia.Module.Web.Mvc.UnitTest
 
     [Theory]
     [InlineData("test-message", "test-info", "test-message|test-info")]
-    public void Adds_growl(string message, string type, string expected)
+    public void adds_growl(string message, string type, string expected)
     {
       // call
       Growl.Add(_controller, message, type);
 
       // assert
-      GrowlCollection.RenderScripts(_controller, growl => $"{message}|{type}", false).ToString().MustBe(expected);
+      GrowlCollection.RenderScripts(_controller, growl => $"{growl.Message}|{growl.Type}", false).ToString().MustBe(expected);
+    }
+
+    [Fact]
+    public void adds_multiple_growls()
+    {
+      // set-up
+      Growl.Add(_controller, "message1", "type1");
+      Growl.Add(_controller, "message2", "type2");
+
+      // call
+      string actual = GrowlCollection.RenderScripts(_controller, growl => $"{growl.Message}|{growl.Type}", false).ToString();
+
+      // assert
+      string expected = "message1|type1\r\nmessage2|type2";
     }
 
     private readonly ControllerBase _controller;
