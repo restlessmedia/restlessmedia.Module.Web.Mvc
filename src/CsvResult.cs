@@ -23,6 +23,7 @@ namespace restlessmedia.Module.Web.Mvc
       _data = data;
       _columnDelimiter = columnDelimiter;
       _rowDelimiter = rowDelimiter ?? Environment.NewLine;
+      FileDownloadName = "data.csv";
     }
 
     protected override void WriteFile(HttpResponseBase response)
