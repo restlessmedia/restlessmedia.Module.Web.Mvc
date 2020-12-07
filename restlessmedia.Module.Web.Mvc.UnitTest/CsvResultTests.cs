@@ -26,12 +26,38 @@ namespace restlessmedia.Module.Web.Mvc.UnitTest
     public void writes_result()
     {
       // set-up
-      IEnumerable<Test> data = Enumerable.Repeat(new Test
+      IEnumerable<object> data = Enumerable.Repeat(new
       {
         Name = "test",
         Age = 20
       }, 5);
       const string expected = "Name,Age\r\ntest,20\r\ntest,20\r\ntest,20\r\ntest,20\r\ntest,20\r\n";
+
+      CsvResult csvResult = new CsvResult(data);
+
+      // execute
+      csvResult.ExecuteResult(_controllerContext);
+
+      // assert
+      _httpContext.Response.OutputStream.Seek(0, SeekOrigin.Begin);
+      using (StreamReader streamReader = new StreamReader(_httpContext.Response.OutputStream))
+      {
+        string actual = streamReader.ReadToEnd();
+        actual.MustBe(expected);
+      }
+    }
+
+    [Fact]
+    public void handles_null()
+    {
+      // set-up
+      IEnumerable<Test> data = Enumerable.Repeat(new Test
+      {
+        Name = "test",
+        Age = null,
+        StartDate = null
+      }, 5);
+      const string expected = "Name,Age,StartDate,Child\r\ntest,,,\r\ntest,,,\r\ntest,,,\r\ntest,,,\r\ntest,,,\r\n";
 
       CsvResult csvResult = new CsvResult(data);
 
@@ -56,7 +82,11 @@ namespace restlessmedia.Module.Web.Mvc.UnitTest
     {
       public string Name { get; set; }
 
-      public int Age { get; set; }
+      public int? Age { get; set; }
+
+      public DateTime? StartDate { get; set; }
+
+      public Test Child { get; set; }
     }
 
     private readonly MemoryStream _responseStream;
