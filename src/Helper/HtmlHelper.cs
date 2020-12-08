@@ -15,10 +15,10 @@ namespace restlessmedia.Module.Web.Mvc.Helper
 {
   public class HtmlHelper<TModel> : System.Web.Mvc.HtmlHelper<TModel>
   {
-    public HtmlHelper(IUIContext context, IRoleService roleService, ICategoryService categoryService, ViewContext viewContext, IViewDataContainer viewDataContainer, RouteCollection routeCollection = null)
+    public HtmlHelper(ISecurityService securityService, IRoleService roleService, ICategoryService categoryService, ViewContext viewContext, IViewDataContainer viewDataContainer, RouteCollection routeCollection = null)
       : base(viewContext, viewDataContainer, routeCollection ?? new RouteCollection())
     {
-      Context = context ?? throw new ArgumentNullException(nameof(context));
+      _securityService = securityService ?? throw new ArgumentNullException(nameof(securityService));
       _roleService = roleService ?? throw new ArgumentNullException(nameof(roleService));
       CategoryService = categoryService ?? throw new ArgumentNullException(nameof(categoryService));
     }
@@ -250,7 +250,7 @@ namespace restlessmedia.Module.Web.Mvc.Helper
 
     public bool Can(string activity, ActivityAccess access = ActivityAccess.Basic)
     {
-      return Context.Security.Authorize(ViewContext.HttpContext, activity, access);
+      return _securityService.Authorize(ViewContext.HttpContext, activity, access);
     }
 
     public MvcHtmlString Access(string activity, Func<string> allow, ActivityAccess access = ActivityAccess.Basic, Func<string> deny = null)
@@ -279,8 +279,6 @@ namespace restlessmedia.Module.Web.Mvc.Helper
     }
 
     public ICategoryService CategoryService { get; private set; }
-
-    public readonly IUIContext Context;
 
     private MvcTag TagHelper(HtmlTextWriterTag htmlTag, string name, string errorClass = "invalid", IDictionary<string, object> htmlAttributes = null)
     {
@@ -353,5 +351,7 @@ namespace restlessmedia.Module.Web.Mvc.Helper
     private string _resourceClassKey;
 
     private readonly IRoleService _roleService;
+
+    private readonly ISecurityService _securityService;
   }
 }

@@ -21,26 +21,6 @@ namespace restlessmedia.Module.Web.Mvc.Attributes
       return httpContext.Request.IsAuthorized(_username, _password, _isBase64);
     }
 
-    protected IUIContext Context
-    {
-      get
-      {
-        if (_context == null)
-        {
-          _context = Resolve<IUIContext>();
-        }
-
-        return _context;
-      }
-    }
-
-    protected T Resolve<T>()
-    {
-      return System.Web.Mvc.DependencyResolverExtensions.GetService<T>(System.Web.Mvc.DependencyResolver.Current);
-    }
-
-    private IUIContext _context;
-
     private string _username;
 
     private string _password;

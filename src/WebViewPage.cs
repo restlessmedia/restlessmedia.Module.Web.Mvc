@@ -7,6 +7,9 @@ using restlessmedia.Module.Security;
 using restlessmedia.Module.Category;
 using restlessmedia.Module.Web.Helper;
 using restlessmedia.Module.Web.Mvc.Asset;
+using restlessmedia.Module.File.Configuration;
+using restlessmedia.Module.File;
+using restlessmedia.Module.Web.Configuration;
 
 namespace restlessmedia.Module.Web.Mvc
 {
@@ -22,7 +25,7 @@ namespace restlessmedia.Module.Web.Mvc
     {
       get
       {
-        return _locationHelper = _locationHelper ?? new LocationHelper(UIContext.FileSettings, UIContext.File);
+        return _locationHelper = _locationHelper ?? new LocationHelper(Resolve<IFileSettings>(), Resolve<IFileService>());
       }
     }
 
@@ -39,15 +42,7 @@ namespace restlessmedia.Module.Web.Mvc
       get
       {
 
-        return _html = _html ?? new Helper.HtmlHelper<TModel>(UIContext, RoleService, CategoryService, ViewContext, ViewDataContainer);
-      }
-    }
-
-    protected IUIContext UIContext
-    {
-      get
-      {
-        return Resolve<IUIContext>();
+        return _html = _html ?? new Helper.HtmlHelper<TModel>(Resolve<ISecurityService>(), RoleService, CategoryService, ViewContext, ViewDataContainer);
       }
     }
 
@@ -71,7 +66,7 @@ namespace restlessmedia.Module.Web.Mvc
 
     protected void IncludeCss(params string[] paths)
     {
-      Include((path) => new CssAsset(UIContext.AssetSettings, path), paths);
+      Include((path) => new CssAsset(Resolve<IAssetSettings>(), path), paths);
     }
 
     protected void IncludeJs(params string[] paths)
@@ -81,7 +76,7 @@ namespace restlessmedia.Module.Web.Mvc
 
     protected void IncludeJs(bool defer, params string[] paths)
     {
-      Include((path) => new JsAsset(UIContext.AssetSettings, path, defer), paths);
+      Include((path) => new JsAsset(Resolve<IAssetSettings>(), path, defer), paths);
     }
 
     protected HtmlString RenderCss()
