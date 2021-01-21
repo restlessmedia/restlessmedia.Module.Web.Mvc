@@ -19,8 +19,8 @@ namespace restlessmedia.Module.Web.Mvc.Binders
 
       // file id
       string fileIdValue = controllerContext.HttpContext.Request[string.Concat(bindingContext.ModelName, ".Id")];
-      int fileId;
-      if (!string.IsNullOrEmpty(fileIdValue) && int.TryParse(fileIdValue, out fileId))
+      
+      if (!string.IsNullOrEmpty(fileIdValue) && int.TryParse(fileIdValue, out int fileId))
       {
         model.Id = fileId;
       }

@@ -12,8 +12,6 @@ namespace restlessmedia.Module.Web.Mvc.Filters
       LocalOnly = localOnly;
     }
 
-    public bool LocalOnly = false;
-
     public override void OnActionExecuting(ActionExecutingContext filterContext)
     {
       if (LocalOnly && !filterContext.RequestContext.HttpContext.Request.IsLocal)
@@ -23,5 +21,7 @@ namespace restlessmedia.Module.Web.Mvc.Filters
 
       base.OnActionExecuting(filterContext);
     }
+
+    public readonly bool LocalOnly = false;
   }
 }

@@ -42,7 +42,7 @@ namespace restlessmedia.Module.Web.Mvc
       get
       {
 
-        return _html = _html ?? new Helper.HtmlHelper<TModel>(Resolve<ISecurityService>(), RoleService, CategoryService, ViewContext, ViewDataContainer);
+        return _html = _html ?? new Helper.HtmlHelper<TModel>(Resolve<ISecurityService>(), CategoryService, ViewContext, ViewDataContainer);
       }
     }
 

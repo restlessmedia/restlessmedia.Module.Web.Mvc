@@ -8,7 +8,7 @@ namespace restlessmedia.Module.Web.Mvc.Asset
     public CssAsset(IAssetSettings settings, string href)
       : base(settings, _tagName, href, false, new Dictionary<string, string>(_defaultAttributes)) { }
 
-    protected override string GetPath(string resolvedPath)
+    protected override string GetPathAttribute(string resolvedPath)
     {
       return $"href=\"{resolvedPath}\"";
     }

@@ -38,7 +38,7 @@ namespace restlessmedia.Module.Web.Mvc.Model
     {
       get
       {
-        return (Guid?)(base.UniqueId != null ? base.UniqueId : null);
+        return (Guid?)(base.UniqueId ?? null);
       }
       set
       {

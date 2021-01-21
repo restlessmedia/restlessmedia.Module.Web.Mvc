@@ -19,7 +19,7 @@ namespace restlessmedia.Module.Web.Mvc.Asset
       }
     }
 
-    protected override string GetPath(string resolvedPath)
+    protected override string GetPathAttribute(string resolvedPath)
     {
       return string.Concat("src=\"", resolvedPath, "\"");
     }

@@ -7,13 +7,10 @@ namespace restlessmedia.Module.Web.Mvc.Asset
 {
   public class AssetCollection
   {
-    public AssetCollection(int capacity)
+    public AssetCollection(int capacity = 0)
     {
       _assets = new List<AssetBase>(capacity);
     }
-
-    public AssetCollection()
-      : this(0) { }
 
     public void Add<T>(params T[] assets)
         where T : AssetBase

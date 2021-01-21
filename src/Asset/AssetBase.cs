@@ -35,19 +35,19 @@ namespace restlessmedia.Module.Web.Mvc.Asset
     public override string ToString()
     {
       string close = HasClosingTag ? $"></{TagName}>" : "/>";
-      return $"<{TagName} {AttributesToString()} {GetPath(_configuration.ResolvePath(Path))} {close}";
+      return $"<{TagName} {AttributesToString()} {GetPathAttribute(_configuration.ResolvePath(Path))} {close}";
     }
 
     public virtual IDictionary<string, string> Attributes { get; private set; }
 
     protected readonly string Path;
 
-    protected abstract string GetPath(string resolvedPath);
+    protected abstract string GetPathAttribute(string resolvedPath);
 
     private string AttributesToString()
     {
       const string separator = " ";
-      return string.Join(separator, Attributes.Select(x => $"{x.Key}=\"{x.Value}\""));
+      return string.Join(separator, Attributes.Select(attribute => $"{attribute.Key}=\"{attribute.Value}\""));
     }
 
     private readonly string TagName;

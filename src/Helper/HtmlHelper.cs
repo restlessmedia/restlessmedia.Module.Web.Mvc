@@ -15,11 +15,10 @@ namespace restlessmedia.Module.Web.Mvc.Helper
 {
   public class HtmlHelper<TModel> : System.Web.Mvc.HtmlHelper<TModel>
   {
-    public HtmlHelper(ISecurityService securityService, IRoleService roleService, ICategoryService categoryService, ViewContext viewContext, IViewDataContainer viewDataContainer, RouteCollection routeCollection = null)
+    public HtmlHelper(ISecurityService securityService, ICategoryService categoryService, ViewContext viewContext, IViewDataContainer viewDataContainer, RouteCollection routeCollection = null)
       : base(viewContext, viewDataContainer, routeCollection ?? new RouteCollection())
     {
       _securityService = securityService ?? throw new ArgumentNullException(nameof(securityService));
-      _roleService = roleService ?? throw new ArgumentNullException(nameof(roleService));
       CategoryService = categoryService ?? throw new ArgumentNullException(nameof(categoryService));
     }
 
@@ -349,8 +348,6 @@ namespace restlessmedia.Module.Web.Mvc.Helper
     }
 
     private string _resourceClassKey;
-
-    private readonly IRoleService _roleService;
 
     private readonly ISecurityService _securityService;
   }
